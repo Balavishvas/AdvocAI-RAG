@@ -1,0 +1,24 @@
+# Python virtual environment
+legal-ai-backend/env/
+legal-ai-backend/venv/
+legal-ai-backend/.venv/
+**/__pycache__/
+*.pyc
+
+# Local environment files
+legal-ai-backend/.env
+legal-ai-frontend/legal-ai-frontend/.env
+legal-ai-frontend/legal-ai-frontend/.env.local
+
+# Backend runtime files / uploads / vectors
+legal-ai-backend/uploads/
+legal-ai-backend/vector_stores/
+
+# Node dependencies and build folders
+**/node_modules/
+**/dist/
+**/build/
+
+# OS specific files
+.DS_Store
+Thumbs.db
