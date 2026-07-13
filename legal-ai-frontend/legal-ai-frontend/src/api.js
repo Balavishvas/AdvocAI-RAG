@@ -1,7 +1,4 @@
-// Base URL of your FastAPI backend.
-// While testing locally with `uvicorn app.main:app --reload`, this is correct as-is.
-// When you deploy the backend (Render/Railway), update this to that live URL.
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 /**
  * Uploads a PDF to the backend. Returns { session_id, filename, chunks_created, message }.
