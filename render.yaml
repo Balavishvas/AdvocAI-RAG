@@ -1,0 +1,25 @@
+services:
+  # Backend API (FastAPI)
+  - type: web
+    name: advocai-rag-backend
+    env: python
+    rootDir: legal-ai-backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false # You will enter this value manually in Render dashboard
+
+  # Frontend Web App (React / Vite)
+  - type: web
+    name: advocai-rag-frontend
+    env: static
+    rootDir: legal-ai-frontend/legal-ai-frontend
+    buildCommand: npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: advocai-rag-backend
+          property: url
